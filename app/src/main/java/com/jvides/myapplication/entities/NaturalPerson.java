@@ -26,7 +26,7 @@ public class NaturalPerson {
 
     private String comments;
 
-    private Date birthDate;
+    private String birthDate;
 
     private Gender gender;
 
@@ -122,11 +122,11 @@ public class NaturalPerson {
         this.comments = comments;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
