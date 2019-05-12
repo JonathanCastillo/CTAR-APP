@@ -52,14 +52,6 @@ public class MainActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
         buildRecycleView();
 
-        /*CardView card_view = (CardView) findViewById(R.id.recicler); // instancia de CardView
-
-        card_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
 
 
 
@@ -103,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
             }
         });
         queue.add(jsonArrayRequest);
@@ -122,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 naturalPersons.get(position);
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+
+
+                intent.putExtra("NaturaPerson", naturalPersons.get(position));
+
+
                 startActivity(intent);
             }
         });

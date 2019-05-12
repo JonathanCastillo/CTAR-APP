@@ -1,8 +1,9 @@
 package com.jvides.myapplication.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class NaturalPerson {
+public class NaturalPerson implements Serializable {
 
     private Long id;
 

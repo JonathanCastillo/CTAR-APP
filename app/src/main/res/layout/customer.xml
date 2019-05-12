@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardCornerRadius="0dp"
-    card_view:cardElevation="1px"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="10px"
     card_view:cardPreventCornerOverlap="false"
     card_view:cardUseCompatPadding="true">
 
@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/iv"
+            android:id="@+id/ivFoto"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="0dp"

@@ -1,6 +1,8 @@
 package com.jvides.myapplication.entities;
 
-public class CivilStatus {
+import java.io.Serializable;
+
+public class CivilStatus  implements Serializable {
 
     private Long id;
 

@@ -1,6 +1,8 @@
 package com.jvides.myapplication.entities;
 
-public class Gender {
+import java.io.Serializable;
+
+public class Gender  implements Serializable {
 
     private Long id;
 

@@ -29,10 +29,11 @@ class CustomerViewHolder extends RecyclerView.ViewHolder{
     public CustomerViewHolder(View itemItem, final CustomerViewAdapter.OnItemClickListener listener){
         super(itemItem);
 
-        iv = (ImageView) itemItem.findViewById(R.id.iv);
+        iv = (ImageView) itemItem.findViewById(R.id.ivFoto);
         tvname = (TextView) itemItem.findViewById(R.id.name);
         tvcomments = (TextView) itemItem.findViewById(R.id.comments);
         tvbirthDate = (TextView) itemItem.findViewById(R.id.birthDate);
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,9 +81,10 @@ public class CustomerViewAdapter extends RecyclerView.Adapter<CustomerViewHolder
         customerViewHolder.tvname.setText(naturalPersons.get(i).getFirstName() + " " + naturalPersons.get(i).getLastName() );
         customerViewHolder.tvbirthDate.setText(naturalPersons.get(i).getBirthDate());
         Log.i("LOGCAT", naturalPersons.get(i).getBirthDate());
+
         if(naturalPersons.get(i).getPhotoUrl() != null && !naturalPersons.get(i).getPhotoUrl().isEmpty()){
             Picasso.get().load(naturalPersons.get(i).getPhotoUrl())
-                    .transform(new CircleTransform())
+
                     .fit()
                     // To prevent fade animation
                     .noFade()
