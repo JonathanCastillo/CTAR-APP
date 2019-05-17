@@ -1,4 +1,4 @@
-package com.jvides.myapplication.adapters;
+package com.ctar.myapplication.adapters;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;

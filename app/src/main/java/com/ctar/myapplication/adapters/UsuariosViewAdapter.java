@@ -1,4 +1,4 @@
-package com.jvides.myapplication.adapters;
+package com.ctar.myapplication.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.jvides.myapplication.R;
-import com.jvides.myapplication.entities.Usuarios;
+import com.ctar.myapplication.R;
+import com.ctar.myapplication.entities.Usuarios;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

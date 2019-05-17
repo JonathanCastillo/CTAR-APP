@@ -1,4 +1,4 @@
-package com.jvides.myapplication.entities;
+package com.ctar.myapplication.entities;
 
 import java.io.Serializable;
 

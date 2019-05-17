@@ -1,11 +1,11 @@
-package com.jvides.myapplication;
+package com.ctar.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.jvides.myapplication.entities.Usuarios;
+import com.ctar.myapplication.entities.Usuarios;
 
 public class DetailsActivity extends AppCompatActivity {
 

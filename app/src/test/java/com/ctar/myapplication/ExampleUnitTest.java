@@ -1,4 +1,4 @@
-package com.jvides.myapplication;
+package com.ctar.myapplication;
 
 import org.junit.Test;
 

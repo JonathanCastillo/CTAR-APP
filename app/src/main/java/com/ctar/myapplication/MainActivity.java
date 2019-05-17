@@ -1,4 +1,4 @@
-package com.jvides.myapplication;
+package com.ctar.myapplication;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +15,8 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.jvides.myapplication.adapters.UsuariosViewAdapter;
-import com.jvides.myapplication.entities.Usuarios;
+import com.ctar.myapplication.adapters.UsuariosViewAdapter;
+import com.ctar.myapplication.entities.Usuarios;
 
 import org.json.JSONArray;
 import org.json.JSONException;

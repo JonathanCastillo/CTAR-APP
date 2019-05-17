@@ -1,4 +1,4 @@
-package com.jvides.myapplication;
+package com.ctar.myapplication;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.jvides.myapplication", appContext.getPackageName());
+        assertEquals("com.ctar.myapplication", appContext.getPackageName());
     }
 }

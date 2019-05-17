@@ -1,7 +1,6 @@
-package com.jvides.myapplication.entities;
+package com.ctar.myapplication.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Usuarios implements Serializable {
     private long Id_Usuario;
