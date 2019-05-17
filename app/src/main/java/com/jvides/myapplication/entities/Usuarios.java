@@ -3,8 +3,95 @@ package com.jvides.myapplication.entities;
 import java.io.Serializable;
 import java.util.Date;
 
-public class NaturalPerson implements Serializable {
+public class Usuarios implements Serializable {
+    private long Id_Usuario;
+    private String Nombres;
+    private String Apellidos;
+    private String User_Name;
+    private String Email;
+    private String Password;
+    private String Foto_Perfil;
+    private int Tipo_Usuario;
+    private int Estado;
 
+    public long getId_Usuario() {
+        return Id_Usuario;
+    }
+
+    public void setId_Usuario(long id_Usuario) {
+        this.Id_Usuario = id_Usuario;
+    }
+
+    public String getNombres() {
+        return Nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.Nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return Apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.Apellidos = apellidos;
+    }
+
+    public String getUser_Name() {
+        return User_Name;
+    }
+
+    public void setUser_Name(String user_Name) {
+        this.User_Name = user_Name;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        this.Email = email;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        this.Password = password;
+    }
+
+    public String getFoto_Perfil() {
+        return Foto_Perfil;
+    }
+
+    public void setFoto_Perfil(String foto_Perfil) {
+        this.Foto_Perfil = foto_Perfil;
+    }
+
+    public int getTipo_Usuario() {
+        return Tipo_Usuario;
+    }
+
+    public void setTipo_Usuario(int tipo_Usuario) {
+        this.Tipo_Usuario = tipo_Usuario;
+    }
+
+    public int getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(int estado) {
+        this.Estado = estado;
+    }
+
+
+
+
+
+
+    /*
     private Long id;
 
     private String firstName;
@@ -154,4 +241,5 @@ public class NaturalPerson implements Serializable {
     public void setNationality(Nationality nationality) {
         this.nationality = nationality;
     }
+    */
 }

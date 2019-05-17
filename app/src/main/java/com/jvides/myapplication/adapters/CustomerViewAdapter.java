@@ -1,20 +1,17 @@
 package com.jvides.myapplication.adapters;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jvides.myapplication.R;
-import com.jvides.myapplication.entities.NaturalPerson;
+import com.jvides.myapplication.entities.Usuarios;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -51,7 +48,7 @@ class CustomerViewHolder extends RecyclerView.ViewHolder{
 
 public class CustomerViewAdapter extends RecyclerView.Adapter<CustomerViewHolder>  {
 
-    private ArrayList<NaturalPerson> naturalPersons;
+    private ArrayList<Usuarios> usuarios;
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener{
@@ -62,8 +59,8 @@ public class CustomerViewAdapter extends RecyclerView.Adapter<CustomerViewHolder
         mListener = listener;
     }
 
-    public CustomerViewAdapter(ArrayList<NaturalPerson> naturalPersons) {
-        this.naturalPersons = naturalPersons;
+    public CustomerViewAdapter(ArrayList<Usuarios> usuarios) {
+        this.usuarios = usuarios;
     }
 
     @NonNull
@@ -76,14 +73,14 @@ public class CustomerViewAdapter extends RecyclerView.Adapter<CustomerViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CustomerViewHolder customerViewHolder, int i) {
-        //customerViewHolder.iv.setImageResource( naturalPersons.get(i).getId());
-        customerViewHolder.tvcomments.setText(naturalPersons.get(i).getComments());
-        customerViewHolder.tvname.setText(naturalPersons.get(i).getFirstName() + " " + naturalPersons.get(i).getLastName() );
-        customerViewHolder.tvbirthDate.setText(naturalPersons.get(i).getBirthDate());
-        Log.i("LOGCAT", naturalPersons.get(i).getBirthDate());
+        //customerViewHolder.iv.setImageResource( usuarios.get(i).getId());
+        customerViewHolder.tvcomments.setText(usuarios.get(i).getUser_Name());
+        customerViewHolder.tvname.setText(usuarios.get(i).getNombres() + " " + usuarios.get(i).getApellidos() );
+        customerViewHolder.tvbirthDate.setText(usuarios.get(i).getEmail());
+        //Log.i("LOGCAT", usuarios.get(i).getUser_Name());
 
-        if(naturalPersons.get(i).getPhotoUrl() != null && !naturalPersons.get(i).getPhotoUrl().isEmpty()){
-            Picasso.get().load(naturalPersons.get(i).getPhotoUrl())
+        if(usuarios.get(i).getFoto_Perfil() != null && !usuarios.get(i).getFoto_Perfil().isEmpty()){
+            Picasso.get().load(usuarios.get(i).getFoto_Perfil())
 
                     .fit()
                     // To prevent fade animation
@@ -101,6 +98,6 @@ public class CustomerViewAdapter extends RecyclerView.Adapter<CustomerViewHolder
 
     @Override
     public int getItemCount() {
-        return this.naturalPersons.size();
+        return this.usuarios.size();
     }
 }

@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.jvides.myapplication.entities.NaturalPerson;
-
-import org.w3c.dom.Text;
+import com.jvides.myapplication.entities.Usuarios;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -15,7 +13,7 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        NaturalPerson naturalPerson = (NaturalPerson) getIntent().getSerializableExtra("NaturaPerson");
+        Usuarios naturalPerson = (Usuarios) getIntent().getSerializableExtra("Usuarios");
 
 
         TextView fullName = (TextView) findViewById(R.id.tvFullName);
@@ -28,15 +26,15 @@ public class DetailsActivity extends AppCompatActivity {
         TextView nationality = (TextView) findViewById(R.id.tvNationality);
 
 
-        Log.i("LOGCAT", naturalPerson.getFirstName());
+        Log.i("LOGCAT", naturalPerson.getNombres());
 
-        fullName.setText(naturalPerson.getFirstName() +" "+ naturalPerson.getMiddleName() +" "+ naturalPerson.getLastName() );
-        identificacionNumber.setText(naturalPerson.getIdentificationNumber());
-        taxIdentificacionNumber.setText(naturalPerson.getIdentificationNumber());
+        fullName.setText(naturalPerson.getNombres() +" "+ naturalPerson.getApellidos());
+        identificacionNumber.setText(naturalPerson.getTipo_Usuario());
+        taxIdentificacionNumber.setText(naturalPerson.getTipo_Usuario());
 
-        birthDate.setText(naturalPerson.getBirthDate());
-        gender.setText(naturalPerson.getGender().getGender());
-        civilStatus.setText(naturalPerson.getCivilStatus().getCivilStatus());
-        nationality.setText(naturalPerson.getNationality().getNationality());
+        birthDate.setText(naturalPerson.getPassword());
+        gender.setText(naturalPerson.getUser_Name());
+        civilStatus.setText(naturalPerson.getPassword());
+        nationality.setText(naturalPerson.getApellidos());
     }
 }

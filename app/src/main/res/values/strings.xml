@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="host_name">http://192.168.43.25:8080</string>
+    <string name="app_name">El Chunche SV</string>
+    <string name="host_name">https://192.168.1.6:8080/ctar/api/v1/usuarios</string>
 </resources>

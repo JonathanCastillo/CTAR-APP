@@ -3,25 +3,20 @@ package com.jvides.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.jvides.myapplication.adapters.CustomerViewAdapter;
-import com.jvides.myapplication.entities.NaturalPerson;
+import com.jvides.myapplication.entities.Usuarios;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CustomerViewAdapter customerViewAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<NaturalPerson> naturalPersons = new ArrayList<NaturalPerson>();
+    private ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
 
 
     @Override
@@ -47,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //carga interfaz de usuario
 
-        url = getResources().getString(R.string.host_name);
+        url ="http://192.168.1.6:8080/ctar/api/v1/usuarios";
 
         queue = Volley.newRequestQueue(this);
         buildRecycleView();
@@ -55,41 +50,44 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        getMethod(url +"/billing/api/v1/natural-persons");
-        Log.d("LOGCAT", "->"  +Integer.toString(naturalPersons.size())  );
+       getMethod(url);
+        Log.d("LOGCAT", "->"  +Integer.toString(usuarios.size())  );
+
     }
 
     public void getMethod(String url){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-
                 Gson gson = new GsonBuilder().create();
-                Type listType = new TypeToken<ArrayList<NaturalPerson>>(){}.getType();
-                List<NaturalPerson> yourClassList = new Gson().fromJson(response.toString(), listType);
-
-                for(NaturalPerson n : yourClassList){
-                    Log.i("LOGCAT", n.getIdentificationNumber());
-                    naturalPersons.add(n);
+                Type listType = new TypeToken<ArrayList<Usuarios>>(){}.getType();
+                List<Usuarios> Respuesta = new Gson().fromJson(response.toString(), listType);
+                /*
+                for(Usuarios n : Respuesta){
+                    Log.d("LOGCAT", "LLEGANDO HASTA AQUI dentro de for" );
+                    //Log.i("LOGCAT", n.getApellidos());
+                    usuarios.add(n);
                 }
+                */
+                CustomerViewAdapter adapter = new CustomerViewAdapter(usuarios);
+                recyclerView.setAdapter(adapter);
 
-/*
                 for (int i = 0; i < response.length(); i++) {
                     try{
                         JSONObject jsonObject = response.getJSONObject(i);
-                        NaturalPerson naturalPerson = new NaturalPerson();
+                        Usuarios naturalPerson = new Usuarios();
 
-                        naturalPerson.setFirstName(jsonObject.getString("firstName"));
-                        naturalPerson.setLastName(jsonObject.getString("lastName"));
-                        naturalPerson.setComments(jsonObject.getString("comments"));
-                        naturalPerson.setPhotoUrl(jsonObject.getString("photoUrl"));
-                        naturalPerson.setBirthDate(jsonObject.getString("birthDate"));
+                        naturalPerson.setNombres(jsonObject.getString("nombres"));
+                        naturalPerson.setApellidos(jsonObject.getString("apellidos"));
+                        naturalPerson.setEmail(jsonObject.getString("email"));
+                        naturalPerson.setFoto_Perfil(jsonObject.getString("foto_Perfil"));
+                        naturalPerson.setUser_Name(jsonObject.getString("user_Name"));
 
-                        naturalPersons.add(naturalPerson);
+                        usuarios.add(naturalPerson);
 
                     }catch (JSONException ex){ ex.printStackTrace();}
 
-                }*/
+                }
 
             }
         }, new Response.ErrorListener() {
@@ -104,18 +102,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.recicler);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        customerViewAdapter = new CustomerViewAdapter(naturalPersons);
+        customerViewAdapter = new CustomerViewAdapter(usuarios);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(customerViewAdapter);
 
         customerViewAdapter.setOnItemClickListener(new CustomerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                naturalPersons.get(position);
+                usuarios.get(position);
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
 
 
-                intent.putExtra("NaturaPerson", naturalPersons.get(position));
+                intent.putExtra("Usuarios", usuarios.get(position));
 
 
                 startActivity(intent);
