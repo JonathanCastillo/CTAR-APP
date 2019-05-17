@@ -2,7 +2,6 @@ package com.jvides.myapplication.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,14 +15,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-class CustomerViewHolder extends RecyclerView.ViewHolder{
+class UsuariosViewHolder extends RecyclerView.ViewHolder{
 
     public TextView tvname;
     public TextView tvcomments;
     public TextView tvbirthDate;
     public ImageView iv;
 
-    public CustomerViewHolder(View itemItem, final CustomerViewAdapter.OnItemClickListener listener){
+    public UsuariosViewHolder(View itemItem, final UsuariosViewAdapter.OnItemClickListener listener){
         super(itemItem);
 
         iv = (ImageView) itemItem.findViewById(R.id.ivFoto);
@@ -46,7 +45,7 @@ class CustomerViewHolder extends RecyclerView.ViewHolder{
     }
 }
 
-public class CustomerViewAdapter extends RecyclerView.Adapter<CustomerViewHolder>  {
+public class UsuariosViewAdapter extends RecyclerView.Adapter<UsuariosViewHolder>  {
 
     private ArrayList<Usuarios> usuarios;
     private OnItemClickListener mListener;
@@ -59,20 +58,20 @@ public class CustomerViewAdapter extends RecyclerView.Adapter<CustomerViewHolder
         mListener = listener;
     }
 
-    public CustomerViewAdapter(ArrayList<Usuarios> usuarios) {
+    public UsuariosViewAdapter(ArrayList<Usuarios> usuarios) {
         this.usuarios = usuarios;
     }
 
     @NonNull
     @Override
-    public CustomerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public UsuariosViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
         View itemView = layoutInflater.inflate(R.layout.customer, viewGroup, false);
-        return new CustomerViewHolder(itemView, mListener);
+        return new UsuariosViewHolder(itemView, mListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerViewHolder customerViewHolder, int i) {
+    public void onBindViewHolder(@NonNull UsuariosViewHolder customerViewHolder, int i) {
         //customerViewHolder.iv.setImageResource( usuarios.get(i).getId());
         customerViewHolder.tvcomments.setText(usuarios.get(i).getUser_Name());
         customerViewHolder.tvname.setText(usuarios.get(i).getNombres() + " " + usuarios.get(i).getApellidos() );

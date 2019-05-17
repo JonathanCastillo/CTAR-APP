@@ -15,7 +15,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.jvides.myapplication.adapters.CustomerViewAdapter;
+import com.jvides.myapplication.adapters.UsuariosViewAdapter;
 import com.jvides.myapplication.entities.Usuarios;
 
 import org.json.JSONArray;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private String url;
 
     private RecyclerView recyclerView;
-    private CustomerViewAdapter customerViewAdapter;
+    private UsuariosViewAdapter customerViewAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     usuarios.add(n);
                 }
                 */
-                CustomerViewAdapter adapter = new CustomerViewAdapter(usuarios);
+                UsuariosViewAdapter adapter = new UsuariosViewAdapter(usuarios);
                 recyclerView.setAdapter(adapter);
 
                 for (int i = 0; i < response.length(); i++) {
@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.recicler);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        customerViewAdapter = new CustomerViewAdapter(usuarios);
+        customerViewAdapter = new UsuariosViewAdapter(usuarios);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(customerViewAdapter);
 
-        customerViewAdapter.setOnItemClickListener(new CustomerViewAdapter.OnItemClickListener() {
+        customerViewAdapter.setOnItemClickListener(new UsuariosViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 usuarios.get(position);
